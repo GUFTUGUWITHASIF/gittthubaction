@@ -35,7 +35,7 @@ jobs:
           script: |
             cd /var/www/html
             sudo git clone https://github.com/GUFTUGUWITHASIF/gittthubaction.git
-            cd githubaction
+            cd gittthubaction
             sudo composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
             sudo chown -R www-data:www-data storage/
             sudo chmod -R 755 storage/
