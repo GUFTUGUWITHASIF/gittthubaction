@@ -11,6 +11,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
       - name: Install dependencies
         run: |
           sudo apt-get update
@@ -23,6 +24,15 @@ jobs:
           sudo apt-get install php8.2-mbstring
           sudo apt-get install php8.2-zip
           sudo apt-get install php8.2-mysql
+
+      - name: Composer update
+        run: |
+          cd /var/www/html/gittthubaction
+          composer update --no-interaction --prefer-dist --optimize-autoloader
+
+      - name: Install dependencies
+        run: |
+          cd /var/www/html/gittthubaction
           composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
 
       - name: Deploy to server
@@ -42,3 +52,4 @@ jobs:
             sudo chown -R www-data:www-data bootstrap/cache/
             sudo chmod -R 755 bootstrap/cache/
             php artisan migrate --force
+
