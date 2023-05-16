@@ -30,7 +30,7 @@ jobs:
         with:
           host: 13.211.159.191
           username: ubuntu
-          key: ${{ secrets.SERVER_PASSWORD1 }}
+          key: ${{ secrets.unique1 }}
           port: 22
           script: |
             cd /var/www/html
