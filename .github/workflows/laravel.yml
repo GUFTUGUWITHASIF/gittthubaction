@@ -26,10 +26,6 @@ jobs:
           sudo apt-get install php8.2-mysql
           composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
 
-      - name: Composer update
-        run: |
-          cd /var/www/html/gittthubaction
-          composer update --no-interaction --prefer-dist --optimize-autoloader
 
       - name: Deploy to server
         uses: appleboy/ssh-action@master
@@ -42,7 +38,9 @@ jobs:
             cd /var/www/html
             sudo git clone https://github.com/GUFTUGUWITHASIF/gittthubaction.git
             cd gittthubaction
+            
             sudo composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
+            composer update --no-interaction --prefer-dist --optimize-autoloader
             sudo chown -R www-data:www-data storage/
             sudo chmod -R 755 storage/
             sudo chown -R www-data:www-data bootstrap/cache/
