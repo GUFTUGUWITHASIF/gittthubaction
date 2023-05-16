@@ -34,7 +34,7 @@ jobs:
           port: 22
           script: |
             cd /var/www/html
-            sudo git clone https://github.com/Srk7995/githubaction.git
+            sudo git clone https://github.com/GUFTUGUWITHASIF/gittthubaction.git
             cd githubaction
             sudo composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
             sudo chown -R www-data:www-data storage/
